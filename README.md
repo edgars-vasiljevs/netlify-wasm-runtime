@@ -1,35 +1,38 @@
-## [Demo for image processing](https://60fe22f9ff623f0007656040--reverent-hodgkin-dc1f51.netlify.app) | [Demo for tensorflow](https://60ff7e2d10fe590008db70a9--reverent-hodgkin-dc1f51.netlify.app)
+# create-svelte
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/cassidoo/next-netlify-starter).
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-This project is aimed to demonstrate how to implement a Serverless Functions working with Webassembly in Netlify. The [main branch](https://github.com/second-state/netlify-wasm-runtime/tree/main) showcases an image processing function, and the [tensorflow branch](https://github.com/second-state/netlify-wasm-runtime/tree/tensorflow) showcases an AI inference function. Both written in simple Rust and runs in the [WasmEdge runtime](https://github.com/WasmEdge/WasmEdge) for WebAssembly.
+## Creating a project
 
-## Overview
+If you're seeing this, you've probably already done this step. Congrats!
 
-The Serverless Functions endpoint is located at `api/hello.js` to meet the requirement of Netlify, but not to the Next.js. So if you want to develop on you local machine, you should put it into `pages/api/` and make some change.
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-The only function in `api/hello.js` is grayscaling an image. It receives a png file and pass it as stdin stream to a spawned child process. The child process runs using the [WasmEdge](https://github.com/WasmEdge/WasmEdge) command.
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-File `api/functions/image-grayscale/src/main.rs` implements the grayscaling logic. You can build it with the Rust `cargo` command with the `-target wasm32-wasi` option to get the `grayscale.wasm` file.
+## Developing
 
-We define custom build in `api/pre.sh` which is called in package.json to download the [WasmEdge command](https://github.com/WasmEdge/WasmEdge/releases/tag/0.8.2). 
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-![](/netlify-wasmedge-runtime.gif)
+```bash
+npm run dev
 
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-## Learn More
+## Building
 
-To learn more about Next.js, take a look at the following resources:
+To create a production version of your app:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-To learn more about Serverless Functions in Netlify, take a look at the following resources:
+You can preview the production build with `npm run preview`.
 
-- [Serverless Functions](https://docs.netlify.com/functions/overview/) - how to write your Serverless Functions.
-
-## Deploy on Netlify
-
-The easiest way to deploy your Next.js app is to use the [Netlify Platform](https://www.netlify.com/with/nextjs/).
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
