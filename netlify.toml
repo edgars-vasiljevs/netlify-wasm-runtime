@@ -1,3 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
 [functions]
   # Sets a custom directory for Netlify Functions
   directory = "functions/"
