@@ -4,7 +4,7 @@
 
     async function upload() {
 
-        const rawResponse = await fetch('https://dapper-cendol-cd648a.netlify.app/.netlify/functions/hello', {
+        const rawResponse = await fetch('http://localhost:8888/.netlify/functions/hello', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
