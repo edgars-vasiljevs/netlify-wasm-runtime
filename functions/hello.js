@@ -27,6 +27,11 @@ exports.handler = async function(event, context) {
   let buf = await _runWasm(typedArray);
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+    },
     body: buf.toString('hex')
   };
 }
