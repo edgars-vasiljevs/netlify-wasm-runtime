@@ -21,10 +21,10 @@ function _runWasm(reqBody) {
 }
 
 exports.handler = async function(event, context) {
-  var typedArray = new Uint8Array(event.body.match(/[\da-f]{2}/gi).map(function (h) {
-    return parseInt(h, 16);
-  }));
-  let buf = await _runWasm(typedArray);
+  // var typedArray = new Uint8Array(event.body.match(/[\da-f]{2}/gi).map(function (h) {
+  //   return parseInt(h, 16);
+  // }));
+  // let buf = await _runWasm(typedArray);
   return {
     statusCode: 200,
     headers: {
@@ -32,6 +32,7 @@ exports.handler = async function(event, context) {
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
     },
-    body: buf.toString('hex')
+    // body: buf.toString('hex')
+    body: 'hehehe'
   };
 }
