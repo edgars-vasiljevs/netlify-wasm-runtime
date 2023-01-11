@@ -30,10 +30,10 @@ exports.handler = async function(event, context) {
 
     return {
         statusCode: 200,
-        headers: {
-            'Content-Type' : 'image/png'
-        },
-        body: pngBuffer.toString('base64'),
-        isBase64Encoded: true,
+        // headers: {
+        //     'Content-Type' : 'image/png'
+        // },
+        body: 'hehehe',
+        // isBase64Encoded: true,
     }
 }
