@@ -5,6 +5,10 @@ curl -sSfL https://github.com/WasmEdge/WasmEdge/releases/download/0.11.2/WasmEdg
 tar --strip-components 2 -xzvf WasmEdge.tar.gz WasmEdge-0.11.2-Linux/bin
 rm WasmEdge.tar.gz
 
+echo "HELLO"
+
+ls -l
+
 # compile all .wasm to .so
 for file in *.wasm; do
     [ -f "$file" ] || continue
