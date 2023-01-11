@@ -19,10 +19,10 @@ function toBuffer(ab) {
 
 exports.handler = async function(event, context) {
 
-    if (!init) {
-        await initialize(fs.readFileSync(path.join(__dirname, 'svg2png_wasm_bg.wasm')));
-        init = true;
-    }
+    // if (!init) {
+    //     await initialize(fs.readFileSync(path.join(__dirname, 'svg2png_wasm_bg.wasm')));
+    //     init = true;
+    // }
 
 
     let files = [];
@@ -30,16 +30,16 @@ exports.handler = async function(event, context) {
         files.push(file);
     });
 
-    /** @var png Uint8Array */
-    const png = await svg2png(svg, {
-        scale: 2, // optional
-        width: 500, // optional
-        backgroundColor: 'white', // optional
-        fonts: [],
-        defaultFontFamily: {},
-    });
+    // /** @var png Uint8Array */
+    // const png = await svg2png(svg, {
+    //     scale: 2, // optional
+    //     width: 500, // optional
+    //     backgroundColor: 'white', // optional
+    //     fonts: [],
+    //     defaultFontFamily: {},
+    // });
 
-    let buff = toBuffer(png);
+    // let buff = toBuffer(png);
 
     return {
         statusCode: 200,
