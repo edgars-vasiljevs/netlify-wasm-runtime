@@ -18,7 +18,7 @@ function toBuffer(ab) {
 exports.handler = async function(event, context) {
 
     if (!init) {
-        await initialize(fs.readFileSync(path.join(process.cwd(), "functions/svg2png_wasm_bg.wasm")));
+        await initialize(fs.readFileSync(path.join(__dirname, 'svg2png_wasm_bg.wasm')));
         init = true;
     }
 
