@@ -1,4 +1,4 @@
-const { Resvg } = require('@resvg/resvg-js')
+// const { Resvg } = require('@resvg/resvg-js')
 
 const svg = `
     <svg viewBox="-8 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -23,9 +23,9 @@ const opts = {
 exports.handler = async function(event, context) {
 
 
-    const resvg = new Resvg(svg, opts)
-    const pngData = resvg.render()
-    const pngBuffer = pngData.asPng()
+    // const resvg = new Resvg(svg, opts)
+    // const pngData = resvg.render()
+    // const pngBuffer = pngData.asPng()
 
 
     return {
