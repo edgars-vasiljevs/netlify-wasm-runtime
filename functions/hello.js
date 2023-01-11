@@ -1,5 +1,6 @@
 const { spawn } = require('child_process');
 const path = require('path');
+const fs = require("fs");
 
 function _runWasm(reqBody) {
   return new Promise(resolve => {
@@ -20,8 +21,18 @@ function _runWasm(reqBody) {
   });
 }
 
+
+
+
 exports.handler = async function(event, context) {
-  // var typedArray = new Uint8Array(event.body.match(/[\da-f]{2}/gi).map(function (h) {
+
+    let files = [];
+    fs.readdirSync(__dirname).forEach(file => {
+        files.push(file);
+    });
+
+
+    // var typedArray = new Uint8Array(event.body.match(/[\da-f]{2}/gi).map(function (h) {
   //   return parseInt(h, 16);
   // }));
   // let buf = await _runWasm(typedArray);
@@ -33,6 +44,6 @@ exports.handler = async function(event, context) {
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
     },
     // body: buf.toString('hex')
-    body: 'hehehe'
+    body: files.join(",\n")
   };
 }
