@@ -22,8 +22,6 @@ function _runWasm(reqBody) {
 }
 
 
-
-
 exports.handler = async function(event, context) {
 
     let files = [];
